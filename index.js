@@ -13,7 +13,7 @@ app.use(cors({
   
 
 // const proxyUrl = "http://localhost:3002";
-const targetUrl = process.env.TARGETURL;
+const targetUrl = "https://www.indiawaterportal.org";
 console.log("targetUrl", targetUrl);
 app.use(
   '/api/auth',
