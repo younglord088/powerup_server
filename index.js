@@ -7,12 +7,12 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 dotenv.config();
 app.use(express.json());
 app.use(cors({
-    origin: ['https://your-frontend-domain.com'], // Update with your actual frontend domain
+    origin: ['https://powerupps-ezumin4hq-younglord088s-projects.vercel.app/'], // Update with your actual frontend domain
     credentials: true,
 }));
 
 // Define the target URL for India Water Portal
-const targetUrl = "https://auth.indiawaterportal.org"; // Update with the actual auth domain
+const targetUrl = "https://indiawaterportal.org"; // Update with the actual auth domain
 console.log("Proxying to targetUrl:", targetUrl);
 
 // Proxy middleware to forward /api/auth requests to the auth server
