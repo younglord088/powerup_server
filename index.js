@@ -16,10 +16,11 @@ app.use(cors({
 const targetUrl = process.env.TARGETURL;
 console.log("targetUrl", targetUrl);
 app.use(
-  "/api/auth",
+  '/api/auth',
   createProxyMiddleware({
     target: targetUrl,
     changeOrigin: true,
+    pathRewrite: { '^/api/auth': '' }, // Strip '/api/auth' before proxying
   })
 );
 
