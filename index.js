@@ -20,7 +20,7 @@ app.use(
   createProxyMiddleware({
     target: targetUrl,
     changeOrigin: true,
-    pathRewrite: { '^/api/auth': '' }, // Strip '/api/auth' before proxying
+    pathRewrite: { '^/api/auth': '' }, 
   })
 );
 
