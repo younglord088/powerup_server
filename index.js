@@ -8,12 +8,7 @@ dotenv.config();
 app.use(express.json());
 
 // CORS configuration to allow requests from your frontend domain with credentials
-app.use(cors({
-    origin: ['https://powerupps-ezumin4hq-younglord088s-projects.vercel.app'], // Your actual frontend domain
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow necessary HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allow necessary headers
-}));
+app.use(cors());
 
 // Define the target URL for the external authentication server
 const targetUrl = "https://indiawaterportal.org"; // The actual auth domain
