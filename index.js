@@ -16,13 +16,13 @@ console.log("Proxying to targetUrl:", targetUrl);
 
 // Proxy middleware to forward /api/auth requests to the external server
 app.use(
-  '/api/auth/v1/users/me',
+  '/api/auth/v1/users/me', // This specific endpoint will be proxied
   createProxyMiddleware({
     target: targetUrl,
-    changeOrigin: true,        // Needed to handle cross-origin requests
-    logLevel: 'debug',         // Enable debugging to check request flow
-    // Remove or adjust pathRewrite depending on whether /api/auth should be sent to target
-    // pathRewrite: { '^/api/auth': '' },  // Uncomment if the target does not expect /api/auth
+    changeOrigin: true,    // Needed to handle cross-origin requests
+    logLevel: 'debug',     // Enable debugging to check request flow
+    pathRewrite: { '^/api/auth/v1/users/me': '/api/auth/v1/users/me' }, // This ensures the path remains the same
+    secure: true           // Ensure SSL handling is correct for HTTPS
   })
 );
 
