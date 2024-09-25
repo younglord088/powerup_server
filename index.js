@@ -16,7 +16,7 @@ console.log("Proxying to targetUrl:", targetUrl);
 
 // Proxy middleware to forward /api/auth requests to the external server
 app.use(
-  '/api/auth',
+  '/*',
   createProxyMiddleware({
     target: targetUrl,
     changeOrigin: true,        // Needed to handle cross-origin requests
