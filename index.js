@@ -5,7 +5,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 
 app.use(express.json());
 app.use(cors({
-  origin: "https://powerupps.vercel.app",
+  origin: "*",
   credentials: true,
 }));
 
