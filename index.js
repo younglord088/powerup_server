@@ -19,7 +19,7 @@ app.use(
   createProxyMiddleware({
     target: proxyURL,
     changeOrigin: true,
-    secure: false, 
+    secure: true, 
   })
 );
 
