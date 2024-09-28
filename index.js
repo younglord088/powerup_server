@@ -1,35 +1,23 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const dotenv = require("dotenv");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
-dotenv.config();
 app.use(express.json());
+app.use(cors({
+  origin: "https://powerupps.vercel.app",
+  credentials: true,
+}));
 
+const proxyURL = "https://www.indiawaterportal.org";
 
-app.use(cors());
-
-// Define the target URL for the external authentication server
-const targetUrl = "https://indiawaterportal.org"; // The actual auth domain
-console.log("Proxying to targetUrl:", targetUrl);
-
-// Proxy middleware to forward /api/auth requests to the external server
 app.use(
-  '/', // This will capture all routes starting from the root
+  "/",
   createProxyMiddleware({
-    target: targetUrl,
-    changeOrigin: true,    // Needed to handle cross-origin requests
-    logLevel: 'debug',     // Enable debugging to check request flow
-    secure: true           // Ensure SSL handling is correct for HTTPS
+    target: proxyURL,
+    changeOrigin: true,
   })
 );
 
-
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
-
-
-const port = process.env.PORT || 5000;
+const port = 5003;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
