@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://powerupp.vercel.app/", 
+    origin: "https://powerupps.vercel.app", // Update to match your frontend origin
     credentials: true, 
   })
 );
@@ -25,3 +25,4 @@ app.use(
 
 const port = 5003;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
+
