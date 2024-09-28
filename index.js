@@ -6,7 +6,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 app.use(express.json());
 app.use(cors({
   origin: "*",
-  credentials: true,
+  
 }));
 
 const proxyURL = "https://www.indiawaterportal.org";
